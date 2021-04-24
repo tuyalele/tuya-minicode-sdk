@@ -1,0 +1,76 @@
+<!--miniprogram/pages/home_center/common_panel/index.js.wxml-->
+<wxs src="./index.wxs" module="utils" />
+
+<image style="width: 750rpx; height: 1204rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"  class="common-panel-backgroud" src="{{forest}}" />
+<navbar device_name="插座" bind:jumpTodeviceEditPage="jumpTodeviceEditPage" />
+<view class="common-panel-header">
+  <view class="common-panel-header-block">
+    <view class="common-panel-header-dpName"></view>
+    <view class="common-panel-header-dpValue"></view>
+  </view>
+</view>
+  <view class="statuslist">
+      <view class="{{utils.countDpItem(roDpListLength,idx)}}">
+        <view class="roDpItem-dpName">定时喂食</view>
+        <view class="roDpItem-status">开</view>
+      </view>
+      <view class="{{utils.countDpItem(roDpListLength,idx)}}">
+        <view class="roDpItem-dpName">下一次喂食时间</view>
+        <view class="roDpItem-status">5小时</view>
+      </view>
+  </view>
+  <Boolean style="width: 750rpx; height: 80rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx"  model:isChecked="{{item.value}}" dpCode="{{item.code}}" dpName="定时喂食开关" bind:sendDp="sendDp" />
+  
+  <view class="kg_footer">
+    <view bindtap="turnDeviceOn" class="f-view">
+      <image class="fImage" src="{{dh1}}"></image>开关
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{dh2}}"></image>定时
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{dh3}}"></image>倒计时
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{dh4}}"></image>用电量
+    </view>
+  
+    
+  </view>
+<!-- <navbar device_name="{{device_name}}" bind:jumpTodeviceEditPage="jumpTodeviceEditPage" /> -->
+
+<!-- <view class="common-panel-header">
+  <view class="common-panel-header-block">
+    <view class="common-panel-header-dpName">{{titleItem.name}}</view>
+    <view class="common-panel-header-dpValue">{{titleItem.value}}</view>
+  </view>
+</view> -->
+
+<!-- <block wx:if="{{isRoDpListShow}}">
+  <view class="statuslist">
+    <block wx:for="{{roDpList}}" wx:key="{{item.code}}" wx:for-item="item" wx:for-index='idx'>
+      <view class="{{utils.countDpItem(roDpListLength,idx)}}">
+        <view class="roDpItem-dpName">{{item.code}}</view>
+        <view class="roDpItem-status">{{item.value}}</view>
+      </view>
+    </block>
+  </view>
+</block>
+
+<view class="scroll-view">
+  <block wx:if="{{isRwDpListShow}}">
+    <block wx:for="{{rwDpList}}" wx:key="{{item.code}}" wx:for-item="item">
+      <block wx:if="{{item.type === 'Boolean'}}">
+        <Boolean model:isChecked="{{item.value}}" dpCode="{{item.code}}" dpName="{{item.name}}" bind:sendDp="sendDp" />
+      </block>
+      <block wx:if="{{item.type === 'Integer'}}">
+        <Integer model:value="{{item.value}}" values="{{item.values}}" dpCode="{{item.code}}" dpName="{{item.name}}"
+          bind:sendDp="sendDp" />
+      </block>
+      <block wx:if="{{item.type === 'Enum'}}">
+        <Enum model:value="{{item.value}}" values="{{item.values}}" dpCode="{{item.code}}" dpName="{{item.name}}"
+          bind:sendDp="sendDp" />
+      </block>
+    </block>
+  </block>
+</view> -->
